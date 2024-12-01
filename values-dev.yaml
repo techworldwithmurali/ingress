@@ -12,6 +12,9 @@ internal:
     - hostname: user-registration-dev.techworldwithmurali.in
       service: user-registration
       port: 8080
+    - hostname: user-form-dev.techworldwithmurali.in
+      service: user-form
+      port: 8080      
 
 external:
   enabled: false  # or false, depending on your needs
