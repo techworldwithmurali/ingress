@@ -3,6 +3,8 @@ pipeline {
 
      parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'helm-deploy-on-eks-dockerhub-jenkinsfile', description: 'Git branch to clone')
+         string(name: 'RELEASE_NAME', defaultValue: '', description: 'RELEASE_NAME')
+		string(name: 'namespace', defaultValue: '', description: 'namespace to deploy')
 
      }
     stages {
@@ -29,7 +31,7 @@ stage('Deploy the Application') {
                 script {
                     // Deploy the application with the provided parameters
                     sh '''
-                    helm upgrade --install -f values-dev.yaml dev-user-management . -n user-management
+                    helm upgrade --install -f values-dev.yaml $RELEASE_NAME . -n $namespace
                     '''
                 }
             }
