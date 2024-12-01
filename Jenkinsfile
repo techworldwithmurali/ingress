@@ -32,7 +32,7 @@ stage('Clone the repository') {
                 script {
                     // Deploy the application with the provided parameters
                     sh '''
-                    helm upgrade --install $RELEASE_NAME . --namespace $namespace  --force --wait --timeout 600s
+                    helm upgrade --install -f values-dev.yaml $RELEASE_NAME . --namespace $namespace  --force --wait --timeout 600s
                     '''
                 }
             }
