@@ -23,5 +23,17 @@ pipeline {
                 }
             }
         }
+
+stage('Deploy the Application') {
+            steps {
+                script {
+                    // Deploy the application with the provided parameters
+                    sh '''
+                    helm upgrade --install -f values-dev.yaml dev-user-management . -n user-management
+                    '''
+                }
+            }
+        }
+        
     }
 }
