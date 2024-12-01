@@ -1,1 +1,25 @@
+internal:
+  enabled: true
+  className: "alb"  # Use your ingress class name (e.g., "alb")
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/tags: app=techworldwithmurali,Team=DevOps
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:266735810449:certificate/8a7cbcb1-774c-463f-ab3e-476437028686
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/security-groups: sg-026c5ab74985fa179
+  hosts:
+    - hostname: user-registration-dev.techworldwithmurali.in
+      service: user-registration
+      port: 8080
+
+
+external:
+  enabled: false  # or false, depending on your needs
+  # Other settings related to external ingress, if any
+  hosts:
+    - hostname: example.com
+      service: example-service
+      port: 8080
+
 
