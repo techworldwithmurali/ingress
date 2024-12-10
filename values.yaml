@@ -12,3 +12,19 @@ internal:
     - hostname: jenkins.techworldwithmurali.in
       service: jenkins
       port: 8080
+
+
+external:
+  enabled: false
+  className: "alb"  # Use your ingress class name (e.g., "alb")
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/tags: app=techworldwithmurali,Team=DevOps
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:266735810449:certificate/8a7cbcb1-774c-463f-ab3e-476437028686
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/security-groups: sg-026c5ab74985fa179
+  hosts:
+    - hostname: jenkins.techworldwithmurali.in
+      service: jenkins
+      port: 8080
