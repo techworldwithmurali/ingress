@@ -9,9 +9,9 @@ internal:
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/security-groups: sg-026c5ab74985fa179
   hosts:
-    - hostname: jenkins.techworldwithmurali.in
-      service: jenkins
-      port: 8080
+    - hostname: jfrog.techworldwithmurali.in
+      service: artifactory
+      port: 8082
 
 
 external:
@@ -25,6 +25,6 @@ external:
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/security-groups: sg-026c5ab74985fa179
   hosts:
-    - hostname: jenkins.techworldwithmurali.in
-      service: jenkins
+    - hostname: example.com
+      service: example
       port: 8080
