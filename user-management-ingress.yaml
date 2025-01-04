@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/security-groups: sg-026c5ab74985fa179
+    alb.ingress.kubernetes.io/subnets: subnet-0ab8d3e404d04be99 , subnet-0140c441a31b472a4
 
 spec:
   ingressClassName: alb
