@@ -29,6 +29,18 @@ stage('Clone') {
             }
         }
 
+	    stage('Apply the ingress') {
+            steps {
+                script {
+                    sh """
+                    kubectl apply -f user-management-ingress.yaml
+                    """
+                }
+            }
+        }
+
+	    
+
       
         
         }
